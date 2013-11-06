@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  showPartial(Views.signup().clone())
+  showPartial(Views.signUp().clone())
   bindPlayerInput()
 });
 
