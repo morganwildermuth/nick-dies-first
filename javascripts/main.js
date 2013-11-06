@@ -8,7 +8,6 @@ function bindPlayerInput() {
 };
 
 var Controller = {
-  page: Views.page(),
 
   togglePartials: function($partialToShow) {
     Views.page().empty()
@@ -20,13 +19,16 @@ var Controller = {
   },
 
   addPlayer: function( event ) {
-  event.preventDefault()
-  Controller.togglePartials(Views.waiting().clone())
-  var playerName = event.target.player.value
-  Sync.addPlayer(playerName);
-  if(Game.checkForPlayers()){
-    Game.setNonCivilianRoles();
-  }
-}
+    event.preventDefault()
 
+    var waiting = Views.waiting().clone()
+    Controller.togglePartials(waiting)
+
+    var playerName = event.target.player.value
+    Sync.addPlayer(playerName);
+
+    if(Game.checkForPlayers()){
+      Game.setNonCivilianRoles();
+    }
+  }
 }
