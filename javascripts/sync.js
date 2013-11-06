@@ -9,5 +9,9 @@ var Sync = {
     playerRef.on('value', function(snapshot) {
       Game.players = snapshot.val()
     })
-  }
+  },
 }
+
+$(document).ready(function(){
+  Sync.getPlayers()
+})
