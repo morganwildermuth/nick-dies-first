@@ -4,12 +4,23 @@
     <script type='text/javascript' src='https://cdn.firebase.com/v0/firebase.js'></script>
     <script type='text/javascript' src='javascripts/sync.js'></script>
     <script type='text/javascript' src='javascripts/main.js'></script>
-
+    <link rel='stylesheet' type='text/css' href='css/main.css'>
   </head>
   <body>
-    <form id="new-player">
-      Enter your name to begin:<input type="text" name="player">
-      <input type="submit" value="join the game">
-    </form>
+    <div id="page"></div>
+
+    <div id="hidden">
+
+      <div id="waiting">
+        <img src='images/waiting.gif' alt='waiting for game to begin'>
+      </div>
+
+      <div id="sign-up">
+        <form id="new-player">
+          Enter your name to begin:<input type="text" name="player">
+          <input type="submit" value="join the game">
+        </form>
+      </div>
+    </div>
   </body>
 </html>
