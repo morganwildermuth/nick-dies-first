@@ -23,3 +23,20 @@ describe("togglePartials", function() {
   });
 
 });
+
+describe('showPartial',function() {
+  var $page, $partial
+  beforeEach(function() {
+    $page = $('<div>').attr('id', 'page').appendTo(document.body)
+    $partial = $('<div>').text("some text")
+  })
+
+  afterEach(function() {
+    $page.remove()
+  })
+
+  it('should show passed in partial', function() {
+    showPartial($partial)
+    expect($page.text()).toMatch($partial.text())
+  })
+})
