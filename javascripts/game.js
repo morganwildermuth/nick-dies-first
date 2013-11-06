@@ -6,7 +6,7 @@ var Game = {
   },
 
   checkForPlayers: function() {
-    if (this.currentPlayers.length === this.expectedPlayers){
+    if (this.currentPlayers().length === this.expectedPlayers){
       Game.setNonCivilianRoles()
     }
   },
@@ -19,15 +19,16 @@ var Game = {
   chooseRandomCivilian: function() {
     var randomPlayerName = this.chooseRandomPlayer()
     if (this.players[randomPlayerName] != 'civilian'){
-      Game.chooseRandomCivilian()
+      return Game.chooseRandomCivilian()
     }
     return randomPlayerName
   },
 
   setNonCivilianRoles: function(mafiaCount) {
 
-    this.setRole('police')
-    this.setRole('doctor')
+    this.setRole('doctor');
+    this.setRole('police');
+
 
     var mafiaCount = mafiaCount || 2
     for (var i = 0; i < mafiaCount; i++) {
@@ -36,7 +37,7 @@ var Game = {
   },
 
   setRole: function(role) {
-    playerName = this.chooseRandomCivilian()
+    var playerName = this.chooseRandomCivilian()
     Sync.updateRole(playerName, role)
   },
 
