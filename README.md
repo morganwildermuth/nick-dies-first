@@ -4,12 +4,12 @@ Development Setup
 =====
 
 To run the app, run:
-'''
+```
 open index.html
-'''
+```
 
 To run the tests, run:
 
-'''
+```
 open SpecRunner.html
-'''
+```
