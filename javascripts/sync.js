@@ -12,6 +12,11 @@ var Sync = {
       Game.players = snapshot.val()
     })
   },
+
+  updateRole: function(name, role){
+    // establish connection to correct firebase node
+    // set value to role
+  }
 }
 
 $(document).ready(function(){
