@@ -17,7 +17,9 @@ function addPlayer( event ) {
   togglePartials(Views.waiting().clone())
   var playerName = event.target.player.value
   Sync.addPlayer(playerName);
-  Game.checkForPlayers();
+  if(Game.checkForPlayers()){
+    Game.setNonCivilianRoles();
+  }
 }
 
 function togglePartials($partialToShow) {

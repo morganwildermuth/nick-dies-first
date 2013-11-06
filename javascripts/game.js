@@ -7,8 +7,9 @@ var Game = {
 
   checkForPlayers: function() {
     if (this.currentPlayers().length === this.expectedPlayers){
-      Game.setNonCivilianRoles()
+      return true
     }
+    return false
   },
 
   chooseRandomPlayer: function(){
@@ -18,10 +19,10 @@ var Game = {
 
   chooseRandomCivilian: function() {
     var randomPlayerName = this.chooseRandomPlayer()
-    if (this.players[randomPlayerName] != 'civilian'){
-      return Game.chooseRandomCivilian()
+    if (this.players[randomPlayerName] === 'civilian'){
+      return randomPlayerName
     }
-    return randomPlayerName
+    return Game.chooseRandomCivilian()
   },
 
   setNonCivilianRoles: function(mafiaCount) {
