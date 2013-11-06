@@ -14,8 +14,8 @@ var Sync = {
   },
 
   updateRole: function(name, role){
-    // establish connection to correct firebase node
-    // set value to role
+    var playerRef = new Firebase(this.url + name)
+    playerRef.set(role)
   }
 }
 

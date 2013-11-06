@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  showPartial(Views.signup().clone())
+  showPartial(Views.signUp().clone())
   bindPlayerInput()
 });
 
@@ -16,7 +16,8 @@ function addPlayer( event ) {
   event.preventDefault()
   togglePartials(Views.waiting().clone())
   var playerName = event.target.player.value
-  Sync.addPlayer(playerName)
+  Sync.addPlayer(playerName);
+  Game.checkForPlayers();
 }
 
 function togglePartials($partialToShow) {
