@@ -6,9 +6,10 @@ var Game = {
   },
 
   checkForPlayers: function() {
-    if (this.currentPlayers.length === this.expectedPlayers){
-      Game.setRoles()
+    if (this.currentPlayers().length === this.expectedPlayers){
+      return true
     }
+    return false
   },
 
   chooseRandomPlayer: function(){
@@ -18,10 +19,10 @@ var Game = {
 
   chooseRandomCivilian: function() {
     var randomPlayerName = this.chooseRandomPlayer()
-    if (this.players[randomPlayerName] != 'civilian'){
-      Game.chooseRandomCivilian()
+    if (this.players[randomPlayerName] === 'civilian'){
+      return randomPlayerName
     }
-    return randomPlayerName
+    return Game.chooseRandomCivilian()
   },
 
   setNonCivilianRoles: function() {
