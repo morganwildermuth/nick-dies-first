@@ -1,12 +1,11 @@
 $(document).ready(function() {
-  showSignUp()
+  showPartial(Views.signup().clone())
   bindPlayerInput()
 });
 
 
-function showSignUp() {
-  var signUp = Views.signUp().clone()
-  Views.page().append(signUp)
+function showPartial($partial) {
+  Views.page().append($partial)
 }
 
 function bindPlayerInput() {
