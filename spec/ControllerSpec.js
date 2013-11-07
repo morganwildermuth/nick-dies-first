@@ -11,14 +11,14 @@ describe("togglePartials", function() {
   })
 
   it("should add the content to the page", function() {
-    togglePartials($partialToAppend)
+    Controller.togglePartials($partialToAppend)
     expect($page.text()).toMatch($partialToAppend.text())
   });
 
   it("should remove the current content from the page", function() {
     var $partialToRemove = $('<div>').text("Remove Me");
     $page.append($partialToRemove);
-    togglePartials($partialToAppend);
+    Controller.togglePartials($partialToAppend);
     expect($page.text()).toNotMatch($partialToRemove.text())
   });
 
@@ -36,7 +36,7 @@ describe('showPartial',function() {
   })
 
   it('should show passed in partial', function() {
-    showPartial($partial)
+    Controller.showPartial($partial)
     expect($page.text()).toMatch($partial.text())
   })
 })
